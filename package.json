@@ -1,0 +1,7 @@
+{
+  "name": "cadastro-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Bruno Moreira <bruno_moreira.19@outlook.com>",
+  "license": "MIT"
+}
