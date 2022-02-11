@@ -12,7 +12,6 @@ export default class Aluno extends Model {
     }, {
       sequelize,
     });
-    console.log('Esse é o this do model de alunos', this);
     return this;
   }
 }
