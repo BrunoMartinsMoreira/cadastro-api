@@ -11,8 +11,8 @@ module.exports = {
     timestamps: true,
     underscored: true,
     underscoredAll: true,
-    /* creactedAt: 'created_at',
-    upadatedAt: 'upadated_at', */
+    creactedAt: 'created_at',
+    upadatedAt: 'upadated_at',
   },
   dialectOptions: {
     timezone: 'America/Sao_paulo',
