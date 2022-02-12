@@ -18,4 +18,3 @@ class HomeController {
   }
 }
 export default new HomeController();
-// erro esta na migration que foi criada como aluno e no arquivo migrations pus alunos_tabela
