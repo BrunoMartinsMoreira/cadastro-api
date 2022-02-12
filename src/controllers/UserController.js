@@ -3,14 +3,12 @@ import User from '../models/User';
 class UserController {
   async store(req, res) {
     try {
-      const novoUser = await User.create({
-        nome: 'Terezinha',
-        email: 'terezinha@ronquifussa.com',
-        password: '*pimba56789minhabenga',
-      });
+      const novoUser = await User.create(req.body);
       res.json(novoUser);
     } catch (err) {
-      console.log('erro no model de users', err);
+      res.status(400).json({
+        Errors: err.errors.map((error) => error.message),
+      });
     }
   }
 }
