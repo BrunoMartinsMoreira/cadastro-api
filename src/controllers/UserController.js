@@ -40,14 +40,7 @@ class UserController {
 
   async update(req, res) {
     try {
-      const { id } = req.params;
-      if (!id) {
-        return res.status(400).json({
-          errors: ['Usuário inválido.'],
-        });
-      }
-
-      const user = await User.findByPk(id);
+      const user = await User.findByPk(req.userId);
       if (!user) {
         return res.status(400).json({
           errors: ['Usuário não encontrado.'],
@@ -55,8 +48,8 @@ class UserController {
       }
 
       const updatedUser = await user.update(req.body);
-      const { name, email } = updatedUser;
-      return res.json({ name, email });
+      const { nome, email } = updatedUser;
+      return res.json({ nome, email });
     } catch (err) {
       console.log(err);
       return res.status(400).json({
@@ -67,14 +60,7 @@ class UserController {
 
   async delete(req, res) {
     try {
-      const { id } = req.params;
-      if (!id) {
-        return res.status(400).json({
-          errors: ['ID inválido.'],
-        });
-      }
-
-      const user = await User.findByPk(id);
+      const user = await User.findByPk(req.userId);
       if (!user) {
         return res.status(400).json({
           errors: ['Usuário não encontrado.'],
