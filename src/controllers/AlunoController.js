@@ -3,10 +3,33 @@ import Aluno from '../models/Aluno';
 class AlunoController {
   async index(req, res) {
     try {
-      res.json('bao demais?');
+      const alunos = await Aluno.findAll();
+      res.json(alunos);
     } catch (err) {
       console.log('erro no model de alunos', err);
     }
   }
+
+  async update(req, res) {
+    try {
+      const aluno = await Aluno.findByPk(req.params.id);
+
+      if (!aluno) {
+        return res.status(400).json({
+          errors: ['Aluno não encontrado.'],
+        });
+      }
+
+      const novoAluno = await aluno.update(req.body);
+
+      return res.json(novoAluno);
+    } catch (err) {
+      console.log(err);
+      return res.status(400).json({
+        Errors: err.errors.map((error) => error.message),
+      });
+    }
+  }
 }
+
 export default new AlunoController();
