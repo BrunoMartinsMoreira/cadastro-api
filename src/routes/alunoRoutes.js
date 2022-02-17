@@ -4,5 +4,6 @@ import alunoController from '../controllers/AlunoController';
 const router = new Router();
 
 router.get('/', alunoController.index);
+router.put('/:id', alunoController.update);
 
 export default router;
