@@ -11,7 +11,12 @@ class HomeController {
         peso: 88.2,
         altura: 1.75,
       });
-      res.json(novoALuno);
+      const {
+        nome, sobrenome, email, idade, peso, altura,
+      } = novoALuno;
+      res.json({
+        nome, sobrenome, email, idade, peso, altura,
+      });
     } catch (err) {
       console.log('erro no model de alunos', err);
     }
